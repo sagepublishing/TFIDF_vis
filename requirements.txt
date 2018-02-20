@@ -1,0 +1,7 @@
+bokeh
+sklearn
+bs4
+nltk
+requests
+matplotlib
+seaborn
