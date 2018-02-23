@@ -1,5 +1,4 @@
 
-====================================================================
 TFIDF visualisations
 ====================================================================
 
@@ -40,7 +39,7 @@ ii) T-SNE has a number of parameters, which have to be ‘tuned’ (by editing c
 
 One nice thing is that the scripts tend to work independently, so if tsne is a problem, you can just re-run the tsne notebook with jupyter without having to run steps 0,1 again.  Once you have all the data processed, you can just tweak step 5 to get the data exactly as you want it.
 
-====================================================================
+
 TFIDF_search_engine
 ====================================================================
 
