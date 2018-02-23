@@ -1,2 +1,63 @@
-# TFIDF_vis
-Visualise Web of Science text data combined with Dimensions metrics
+
+====================================================================
+TFIDF visualisations
+====================================================================
+
+This is a project folder for creating interactive textual visualisations of Web of Science data.
+
+There are a number of potential updates and forks to this code which can develop it and improve its utility.
+
+These instructions assume that you have the latest Python 3 version of Anaconda from Continuum.io.
+
+To test the code:
+1. Install requirements
+> pip install -r requirements.txt
+1b. If you've never used nltk before, open the GUI
+> ipython
+> import nltk
+> nltk.download()   # opens the GUI
+Then download snowball stemmer and English language stopwords
+> quit()
+
+2. Create a folder called 'wos' and fill it with Web of Science data in tsv format. WoS data should, at a minimum include the following columns:
+['DI','PY','TI','AB','DE','ID','AU','AF','SO','SC','SN','EI','TC','Z9']
+
+3. run
+> python run.py
+3b.  You can alternatively open a jupyter notebook
+> jupyter notebook
+... and then step through the code, one piece at a time in the .ipynb files
+
+Following the above instructions should produce a visualisation.  However, it's unlikely that your first visualisation will give you what you want to see.  This is mostly down to step 2: ‘t-SNE’ which has a couple of inherent problems.
+i) T-SNE is quite slow.  You may find that, for large datasets (say 10,000+ files) t-SNE can take several hours, or even need to run overnight.  
+ii) T-SNE has a number of parameters, which have to be ‘tuned’ (by editing config.py) according to the particular dataset.  I’m not aware of an automatable way of tuning these parameters, so you may have to run the analysis repeatedly in order to get the parameters right.  My best advice for tuning t-SNE is:
+ - Start with ‘perplexity’ set to 5-7% of the number of papers in your dataset.
+ - Pick some numbers for the other settings based on: https://distill.pub/2016/misread-tsne/
+ - Run it once and take a look at what you’ve got.  
+  - If you see clusters forming up in lines, or squiggles, then it’s likely that ‘number of iterations’ is too low.
+  - Ideally, clusters look like fat blobs and are well separated from each other.  If blobs look too small and scattered, it's possible perplexity is too low.
+  - If you can’t see any features in the data, just one big homogeneous blob, then learning rate is likely too high, (but this will happen when any parameter is too high).
+
+One nice thing is that the scripts tend to work independently, so if tsne is a problem, you can just re-run the tsne notebook with jupyter without having to run steps 0,1 again.  Once you have all the data processed, you can just tweak step 5 to get the data exactly as you want it.
+
+====================================================================
+TFIDF_search_engine
+====================================================================
+
+The repo also contains a mini-search-engine which will find a list of similar papers to some input query.
+
+There are a number of potential uses for this:
+- explore a set of papers relevant to some input query
+- find referees for a new submission (i.e. the authors of similar papers that have already been published will likely be suitable referees)
+- find suitable journals for the transfer desk
+
+An input query can be any piece of text, but in this case for simplicity, I've simply made it so that inputs are pdf documents.  
+
+To use the search engine:
+1. Create a 2 new folders: 'new_subs' and then 'pdf' inside 'new_subs'
+2. Fill 'new_subs/pdf' with new pdf submissions from ScholarOne
+3. Open the TFIDF_Search_engine.ipynb with Jupyter Notebook (or Jupyter Lab) and run all cells
+
+The result will be a number XLSX files (one for each input pdf) listing the most similar documents for each of those pdfs.  These lists might be useful to the transfer desk or to PRAs.
+
+There are a few issues here.  For one thing, the search engine is trained on abstracts and the input documents are pdfs, so we are comparing 2 different things.  I notice that, for example, the journal 'Journal of Cerebral Blood Flow and Metabolism' adds its title to every page of the pdf.  This means that those words will seem disproportionately important to the search engine.  So the results are not going to be perfect right now and there's still a bit of work to do, but hopefully this will be helpful for the transfer desk and referee selection.
