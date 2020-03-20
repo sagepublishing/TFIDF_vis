@@ -1,9 +1,0 @@
-__pycache__
-.ipynb*
-.vs*
-*.suo*
-
-# Notebooks
-Reference_analysis*
-Geocoding*
-TFIDF_Search*
