@@ -1,6 +1,7 @@
 __pycache__
 .ipynb*
 .vs*
+*.suo*
 
 # Notebooks
 Reference_analysis*
