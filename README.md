@@ -1,6 +1,6 @@
-<<<<<<< HEAD
-
-EDIT: This is quite an old repo. Recommend switching TFIDF for Doc2Vec if you only have titles and abstracts  - or a BERT variant if you have a GPU handy. Also switch t-SNE for uMap
+**EDIT:** This is quite an old repo. 
+- Recommend switching TFIDF for Doc2Vec/SciSpaCy if you only have titles and abstracts - or a BERT variant if you have a GPU handy. 
+- Also switch t-SNE for uMap
 
 # TFIDF visualisations
 
