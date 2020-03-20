@@ -1,4 +1,4 @@
-**EDIT:** This is quite an old repo. 
+#EDIT: This is quite an old repo. 
 - Recommend switching TFIDF for Doc2Vec/SciSpaCy if you only have titles and abstracts - or a BERT variant if you have a GPU handy. 
 - Also switch t-SNE for uMap
 
@@ -54,10 +54,7 @@ ii) T-SNE has a number of parameters, which have to be ‘tuned’ (by editing c
 
 One nice thing is that the scripts tend to work independently, so if tsne is a problem, you can just re-run the tsne notebook with jupyter without having to run steps 0,1 again.  Once you have all the data processed, you can just tweak step 5 to get the data exactly as you want it.  Also, tsne is only required for the visualisation, so other useful outputs like the search-engine don't require this step.
 
-=======
-
-TFIDF visualisations
-====================================================================
+## TFIDF visualisations
 
 This is a project folder for creating interactive textual visualisations of Web of Science data.
 
