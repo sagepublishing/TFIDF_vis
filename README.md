@@ -53,23 +53,3 @@ ii) T-SNE has a number of parameters, which have to be ‘tuned’ (by editing c
 
 One nice thing is that the scripts tend to work independently, so if tsne is a problem, you can just re-run the tsne notebook with jupyter without having to run steps 0,1 again.  Once you have all the data processed, you can just tweak step 5 to get the data exactly as you want it.  Also, tsne is only required for the visualisation, so other useful outputs like the search-engine don't require this step.
 
-
-## TFIDF_search_engine for finding referees automatically
-
-The repo also contains a mini-search-engine which will find a list of similar papers to some input query.
-
-There are a number of potential uses for this:
-- explore a set of papers relevant to some input query
-- find referees for a new submission (i.e. the authors of similar papers that have already been published will likely be suitable referees)
-- find suitable journals for the transfer desk
-
-An input query can be any piece of text, but in this case, for simplicity, I've simply made it so that inputs are pdf documents.  
-
-To use the search engine:
-1. Create a 2 new folders: 'new_subs' and then 'pdf' inside 'new_subs'
-2. Fill 'new_subs/pdf' with new pdf submissions from ScholarOne
-3. Open the TFIDF_Search_engine.ipynb with Jupyter Notebook (or Jupyter Lab) and run all cells
-
-The result will be a number XLSX files (one for each input pdf) listing the most similar documents for each of those pdfs.  These lists might be useful to the transfer desk or to PRAs.
-
-There are a few issues here.  For one thing, the search engine is trained on abstracts and the input documents are pdfs, so we are comparing 2 different things.  I notice that, for example, the journal 'Journal of Cerebral Blood Flow and Metabolism' adds its title to every page of the pdf.  This means that those words will seem disproportionately important to the search engine.  So the results are not going to be perfect right now and there's still a bit of work to do, but hopefully this will be helpful for the transfer desk and referee selection.
