@@ -1,5 +1,5 @@
 
-EDIT: This is quite an old repo. Recommend switching TFIDF for Doc2Vec or a BERT variant. Also switch t-SNE for uMap
+EDIT: This is quite an old repo. Recommend switching TFIDF for Doc2Vec if you only have titles and abstracts  - or a BERT variant if you have a GPU handy. Also switch t-SNE for uMap
 
 # TFIDF visualisations
 
@@ -63,7 +63,7 @@ There are a number of potential uses for this:
 - find referees for a new submission (i.e. the authors of similar papers that have already been published will likely be suitable referees)
 - find suitable journals for the transfer desk
 
-An input query can be any piece of text, but in this case for simplicity, I've simply made it so that inputs are pdf documents.  
+An input query can be any piece of text, but in this case, for simplicity, I've simply made it so that inputs are pdf documents.  
 
 To use the search engine:
 1. Create a 2 new folders: 'new_subs' and then 'pdf' inside 'new_subs'
