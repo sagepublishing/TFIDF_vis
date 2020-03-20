@@ -1,0 +1,14 @@
+__pycache__
+.ipynb*
+.vs/
+*.suo*
+TFIDF*
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Notebooks
+Reference_analysis*
+Geocoding*
+TFIDF_Search*
