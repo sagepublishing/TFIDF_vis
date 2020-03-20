@@ -1,8 +1,6 @@
 __pycache__
 .ipynb*
 .vs/
-*.suo*
-TFIDF*
 *.suo
 *.user
 *.userosscache
