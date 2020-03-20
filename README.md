@@ -1,6 +1,7 @@
 
-TFIDF visualisations
-====================================================================
+EDIT: This is quite an old repo. Recommend switching TFIDF for Doc2Vec or a BERT variant. Also switch t-SNE for uMap
+
+# TFIDF visualisations
 
 This is a project folder for creating interactive textual visualisations of Web of Science data.
 
@@ -8,7 +9,7 @@ There are a number of potential updates and forks to this code which can develop
 
 These instructions assume that you have the latest Python 3 version of Anaconda from Continuum.io.
 
-To test the code:
+### To test the code:
 1. Install requirements.  Open a terminal (Mac/Linux) or command window (PC)
 ```
 > pip install -r requirements.txt
@@ -38,6 +39,8 @@ Then download snowball stemmer and English language stopwords
 ```
 ... and then step through the code, one piece at a time in the .ipynb files
 
+### Notes
+
 Following the above instructions should produce a visualisation.  However, it's unlikely that your first visualisation will give you what you want to see.  This is mostly down to step 2: ‘t-SNE’ which has a couple of inherent problems.
 i) T-SNE is quite slow.  You may find that, for large datasets (say 10,000+ files) t-SNE can take several hours, or even need to run overnight.  
 ii) T-SNE has a number of parameters, which have to be ‘tuned’ (by editing config.py) according to the particular dataset.  I’m not aware of an automatable way of tuning these parameters, so you may have to run the analysis repeatedly in order to get the parameters right.  My best advice for tuning t-SNE is:
@@ -51,8 +54,7 @@ ii) T-SNE has a number of parameters, which have to be ‘tuned’ (by editing c
 One nice thing is that the scripts tend to work independently, so if tsne is a problem, you can just re-run the tsne notebook with jupyter without having to run steps 0,1 again.  Once you have all the data processed, you can just tweak step 5 to get the data exactly as you want it.  Also, tsne is only required for the visualisation, so other useful outputs like the search-engine don't require this step.
 
 
-TFIDF_search_engine for finding referees automatically
-====================================================================
+## TFIDF_search_engine for finding referees automatically
 
 The repo also contains a mini-search-engine which will find a list of similar papers to some input query.
 

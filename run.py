@@ -21,8 +21,10 @@ for file in [files[i] for i in to_run]:
     os.system('jupyter nbconvert --to python {}.ipynb'.format(file))
     print('--- Executing .py file ---')
     os.system('python {}.py'.format(file))
-    print('--- Deleting .py file ---')
-    os.system('del {}.py'.format(file))
+
+    # I don't recommend programmatic deletion of files. I'd just delete these manually.
+    # print('--- Deleting .py file ---')
+    # os.system('del {}.py'.format(file))
 
 ## Notes:
 """
